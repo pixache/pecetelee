@@ -16,7 +16,7 @@ module.exports.run = async(client, message, args) => {
                 },
 				{
 				name: '<:patrick:587548068119838731> | Üye Komutları',
-				value: '`avatar`, `bilgi`, `çark`, `link`, `ping`, `söyle`'
+				value: '`avatar`, `bilgi`, `çark`, `link`, `ping`, `söyle`, `yardım`'
 				}
 			],
 			timestamp: new Date(),
