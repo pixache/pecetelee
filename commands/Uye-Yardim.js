@@ -1,23 +1,34 @@
 const Discord = require('discord.js');
-const config = require('../config.json');
+const config = require("../config.json");
 
-exports.run = async(client, message, args) => {
-    let embed = new Discord.RichEmbed()
-        .setColor(config.mavi)
-        .setTitle('Peçetelee Yardım')
-        .setDescription(
-            "Peçetelee, Peçeteliler için yapılmış özel bir bottur.\n" + 
-            "Bu sunucu için prefix, `pct!`\n\n" +
-            "**Komutlar:**\n\n" +  
-            "`pct!link      :: Rastgele video linki atar.`\n" + 
-            "`pct!yardım    :: Bu mesajı gönderir.`\n"
-        )
-        .setTimestamp()
-        .setFooter('Peçetelee v0.dahadenemeaşamasında', client.user.avatarURL);
-    message.author.send(embed).catch(err => console.log(err));
-
+module.exports.run = async(client, message, args) => {
+	message.author.send({embed: {
+	color: 3447003,
+	author: {name: 'Peçetelee Yardım'},
+			fields: [
+				{
+				name: ":gear: | Admin Komutları",
+				value:"`at`, `ban`, `sil`",
+                },
+                {
+                name: ":file_cabinet: | Sunucu Komutları",
+                value: "`sunucubilgi`"
+                },
+				{
+				name: '<:patrick:587548068119838731> | Üye Komutları',
+				value: '`avatar`, `bilgi`, `çark`, `link`, `ping`, `söyle`'
+				}
+			],
+			timestamp: new Date(),
+			footer: {
+				icon_url: client.user.avatarURL,
+				text: `Peçetelee v0.1.3`
+			}
+        }});
+    let msg = await message.channel.send(':mailbox: | Mesaj kutunu kontrol et!');
+    msg.delete(10000).catch(err => console.log(err));
 }
 
-exports.help = {
+module.exports.help = {
     name: 'yardım'
 }

@@ -19,7 +19,7 @@ fs.readdir("./commands", (err, files) => {
 });
 
 client.on('ready', () => {
-	console.log('Hazır');
+	console.log(`${client.user.username} olarak giriş yapıldı!`);
 	client.user.setActivity('pct!yardım', {type: "WATCHING"})
 });
 
@@ -103,4 +103,4 @@ client.on('message', async(message) => {
 	if(commandfile) commandfile.run(client, message, args);
 });
 
-client.login(process.env.TOKEN);
+client.login(config.token);
